@@ -45,7 +45,8 @@ Class dynamicOriginalClass(id target,SEL selector){
 
 - (void)addDynamicIvars{
     Class Myclass = objc_getClass("DynamicTestObject");
-
+    class_addIvar(Myclass, <#const char * _Nonnull name#>, <#size_t size#>, <#uint8_t alignment#>, <#const char * _Nullable types#>)
+    
 }
 
 - (void)changeISAToSubclass{

@@ -31,7 +31,6 @@
 
 
 - (void)create{
-    
 #define CALL_METHOD(instance,selector)\
     ((void(*)(id,SEL))objc_msgSend)(instance,selector);
     DynamicCreateObject *fatherObject = [DynamicCreateObject new];
