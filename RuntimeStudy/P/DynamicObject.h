@@ -18,7 +18,7 @@
  */
 #import <Foundation/Foundation.h>
 
-@interface DynamicCreateObject : NSObject
+@interface DynamicObject : NSObject
 //动态的创建一个子类
 - (id)createDynamicObject;
 //动态的给子类添加方法

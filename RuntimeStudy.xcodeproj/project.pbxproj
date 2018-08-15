@@ -10,7 +10,9 @@
 		8E3666E72122AD51009CE9E9 /* BayMaxZombieObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3666E62122AD51009CE9E9 /* BayMaxZombieObject.m */; };
 		8E3666EB2122AE42009CE9E9 /* BayMaxStubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3666EA2122AE42009CE9E9 /* BayMaxStubObject.m */; };
 		8E3666F62122B90A009CE9E9 /* NSObject+BayMaxZombie.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8E3666F52122B90A009CE9E9 /* NSObject+BayMaxZombie.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8E36670C2122C526009CE9E9 /* DynamicCreateObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36670B2122C526009CE9E9 /* DynamicCreateObject.m */; };
+		8E36670C2122C526009CE9E9 /* DynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36670B2122C526009CE9E9 /* DynamicObject.m */; };
+		8E36670F2123B0C2009CE9E9 /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36670E2123B0C2009CE9E9 /* Father.m */; };
+		8E3667122123B0C8009CE9E9 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3667112123B0C8009CE9E9 /* Son.m */; };
 		8E86DCC32119918000098EFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC22119918000098EFA /* AppDelegate.m */; };
 		8E86DCC62119918000098EFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC52119918000098EFA /* ViewController.m */; };
 		8E86DCC92119918000098EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E86DCC72119918000098EFA /* Main.storyboard */; };
@@ -30,8 +32,12 @@
 		8E3666EA2122AE42009CE9E9 /* BayMaxStubObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BayMaxStubObject.m; sourceTree = "<group>"; };
 		8E3666F42122B90A009CE9E9 /* NSObject+BayMaxZombie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+BayMaxZombie.h"; sourceTree = "<group>"; };
 		8E3666F52122B90A009CE9E9 /* NSObject+BayMaxZombie.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSObject+BayMaxZombie.mm"; sourceTree = "<group>"; };
-		8E36670A2122C526009CE9E9 /* DynamicCreateObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicCreateObject.h; sourceTree = "<group>"; };
-		8E36670B2122C526009CE9E9 /* DynamicCreateObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicCreateObject.m; sourceTree = "<group>"; };
+		8E36670A2122C526009CE9E9 /* DynamicObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicObject.h; sourceTree = "<group>"; };
+		8E36670B2122C526009CE9E9 /* DynamicObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicObject.m; sourceTree = "<group>"; };
+		8E36670D2123B0C2009CE9E9 /* Father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Father.h; sourceTree = "<group>"; };
+		8E36670E2123B0C2009CE9E9 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
+		8E3667102123B0C8009CE9E9 /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
+		8E3667112123B0C8009CE9E9 /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
 		8E86DCBE2119918000098EFA /* RuntimeStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E86DCC12119918000098EFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E86DCC22119918000098EFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,8 +107,12 @@
 		8E3667092122C08E009CE9E9 /* P */ = {
 			isa = PBXGroup;
 			children = (
-				8E36670A2122C526009CE9E9 /* DynamicCreateObject.h */,
-				8E36670B2122C526009CE9E9 /* DynamicCreateObject.m */,
+				8E36670A2122C526009CE9E9 /* DynamicObject.h */,
+				8E36670B2122C526009CE9E9 /* DynamicObject.m */,
+				8E36670D2123B0C2009CE9E9 /* Father.h */,
+				8E36670E2123B0C2009CE9E9 /* Father.m */,
+				8E3667102123B0C8009CE9E9 /* Son.h */,
+				8E3667112123B0C8009CE9E9 /* Son.m */,
 			);
 			path = P;
 			sourceTree = "<group>";
@@ -213,8 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E36670C2122C526009CE9E9 /* DynamicCreateObject.m in Sources */,
+				8E36670C2122C526009CE9E9 /* DynamicObject.m in Sources */,
+				8E36670F2123B0C2009CE9E9 /* Father.m in Sources */,
 				8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */,
+				8E3667122123B0C8009CE9E9 /* Son.m in Sources */,
 				8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */,
 				8E86DCC62119918000098EFA /* ViewController.m in Sources */,
 				8E3666F62122B90A009CE9E9 /* NSObject+BayMaxZombie.mm in Sources */,

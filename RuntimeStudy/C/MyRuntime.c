@@ -19,7 +19,7 @@ struct objc_method_list{
     struct objc_method_list *obsolete;//指向下一个objc_method_list结构体的指针
     int method_count;
     int space;
-    //可变长度的结构体
+    //可变长度的结构体数组
     struct objc_method method_list[1];
 };
 

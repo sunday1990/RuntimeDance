@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "DynamicCreateObject.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
+
+#import "DynamicObject.h"
+#import "Father.h"
+#import "Son.h"
 
 @interface ViewController ()
 
@@ -20,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self create];
+    [self demo0];
+    [self demo1];
 }
 
 
@@ -30,10 +34,11 @@
 }
 
 
-- (void)create{
+- (void)demo0{
+    typedef void (*MYIMP)(id target,SEL sel);
 #define CALL_METHOD(instance,selector)\
-    ((void(*)(id,SEL))objc_msgSend)(instance,selector);
-    DynamicCreateObject *fatherObject = [DynamicCreateObject new];
+((MYIMP)objc_msgSend)(instance,selector);
+    DynamicObject *fatherObject = [DynamicObject new];
     CALL_METHOD(fatherObject, @selector(createDynamicObject));
     CALL_METHOD(fatherObject, @selector(addDynamicMethod));
     CALL_METHOD(fatherObject, @selector(callDynamicMethod));
@@ -41,4 +46,17 @@
     CALL_METHOD(fatherObject, @selector(resetISA));
     CALL_METHOD(fatherObject, @selector(testFatherMethod));
 }
+
+- (void)demo1{
+    BOOL override = false;
+    override = class_getMethodImplementation([Son class], @selector(method0)) != class_getMethodImplementation([Father class], @selector(method0));
+    if (override) {
+        NSLog(@"重写了");
+    }else{
+        NSLog(@"没有重写");
+    }
+    
+}
+
+
 @end

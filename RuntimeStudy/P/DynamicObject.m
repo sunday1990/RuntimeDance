@@ -6,23 +6,23 @@
 //  Copyright © 2018年 zhugefang. All rights reserved.
 //
 
-#import "DynamicCreateObject.h"
+#import "DynamicObject.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation DynamicCreateObject
+@implementation DynamicObject
 
 void dynamicMethod(id target,SEL selector){
     NSLog(@"动态添加的方法被调用了");
 }
 
 Class dynamicOriginalClass(id target,SEL selector){
-    return [DynamicCreateObject class];
+    return [DynamicObject class];
 }
 
 - (id)createDynamicObject{
     //动态创建DynamicCreateObject的子类，并调用一个方法
-    Class Myclass = objc_allocateClassPair([DynamicCreateObject class], "DynamicTestObject", 0);
+    Class Myclass = objc_allocateClassPair([DynamicObject class], "DynamicTestObject", 0);
     class_addMethod(Myclass, @selector(testmyClassMethod), (IMP)dynamicMethod, "v@:");
     objc_registerClassPair(Myclass);
     //动态创建一个子类的对象,并进行绑定
@@ -44,9 +44,18 @@ Class dynamicOriginalClass(id target,SEL selector){
 }
 
 - (void)addDynamicIvars{
-    Class Myclass = objc_getClass("DynamicTestObject");
-    class_addIvar(Myclass, <#const char * _Nonnull name#>, <#size_t size#>, <#uint8_t alignment#>, <#const char * _Nullable types#>)
+    //    运行时规定,只能在objc_allocateClassPair与objc_registerClassPair两个函数之间为类添加变量
+    Class People = objc_allocateClassPair([NSObject class], "DynamicPeople", 0);
+    BOOL flag1 = class_addIvar(People, "_name", sizeof(NSString *), log2(sizeof(NSString *)), @encode(NSString *));
+    if (flag1) {
+        NSLog(@"给动态创建的类添加了一个NSString类型的成员变量");
+    }
     
+    BOOL flag2 = class_addIvar(People, "_age", sizeof(int), sizeof(int), @encode(int));
+    if (flag2) {
+        NSLog(@"给动态创建的类添加了一个int类型的成员变量");
+    }
+    objc_registerClassPair(People);
 }
 
 - (void)changeISAToSubclass{
