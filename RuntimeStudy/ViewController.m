@@ -38,13 +38,13 @@
     typedef void (*MYIMP)(id target,SEL sel);
 #define CALL_METHOD(instance,selector)\
 ((MYIMP)objc_msgSend)(instance,selector);
-    DynamicObject *fatherObject = [DynamicObject new];
-    CALL_METHOD(fatherObject, @selector(createDynamicObject));
-    CALL_METHOD(fatherObject, @selector(addDynamicMethod));
-    CALL_METHOD(fatherObject, @selector(callDynamicMethod));
-    CALL_METHOD(fatherObject, @selector(changeISAToSubclass));
-    CALL_METHOD(fatherObject, @selector(resetISA));
-    CALL_METHOD(fatherObject, @selector(testFatherMethod));
+    DynamicObject *object = [DynamicObject new];
+    CALL_METHOD(object, @selector(createDynamicObject));
+    CALL_METHOD(object, @selector(addDynamicMethod));
+    CALL_METHOD(object, @selector(callDynamicMethod));
+    CALL_METHOD(object, @selector(changeISAToSubclass));
+    CALL_METHOD(object, @selector(resetISA));
+    CALL_METHOD(object, @selector(testFatherMethod));
 }
 
 - (void)demo1{
@@ -55,8 +55,6 @@
     }else{
         NSLog(@"没有重写");
     }
-    
 }
-
 
 @end
