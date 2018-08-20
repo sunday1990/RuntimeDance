@@ -19,5 +19,10 @@
 
 }
 
+- (void)testMethodwithParam:(NSString *)p1{
+    NSLog(@"origin p1 is %@",p1);
+}
+
+
 
 @end

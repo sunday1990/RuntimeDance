@@ -27,6 +27,7 @@
 		8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A0212ABC2800E31D4B /* WeakReferenceViewController.m */; };
 		8EC324A5212AD10D00E31D4B /* TestCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A4212AD10D00E31D4B /* TestCategory.m */; };
 		8EC324A8212AD14400E31D4B /* TestCategory+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A7212AD14400E31D4B /* TestCategory+Ext.m */; };
+		8EC324AE212AD84A00E31D4B /* CategoryTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324AD212AD84A00E31D4B /* CategoryTool.m */; };
 		8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,8 @@
 		8EC324A4212AD10D00E31D4B /* TestCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCategory.m; sourceTree = "<group>"; };
 		8EC324A6212AD14400E31D4B /* TestCategory+Ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestCategory+Ext.h"; sourceTree = "<group>"; };
 		8EC324A7212AD14400E31D4B /* TestCategory+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TestCategory+Ext.m"; sourceTree = "<group>"; };
+		8EC324AC212AD84A00E31D4B /* CategoryTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryTool.h; sourceTree = "<group>"; };
+		8EC324AD212AD84A00E31D4B /* CategoryTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryTool.m; sourceTree = "<group>"; };
 		8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Category.h"; sourceTree = "<group>"; };
 		8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +193,8 @@
 				8EC324A4212AD10D00E31D4B /* TestCategory.m */,
 				8EC324A6212AD14400E31D4B /* TestCategory+Ext.h */,
 				8EC324A7212AD14400E31D4B /* TestCategory+Ext.m */,
+				8EC324AC212AD84A00E31D4B /* CategoryTool.h */,
+				8EC324AD212AD84A00E31D4B /* CategoryTool.m */,
 			);
 			path = "category-method";
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				8E86DCC62119918000098EFA /* ViewController.m in Sources */,
 				8E3666F62122B90A009CE9E9 /* NSObject+BayMaxZombie.mm in Sources */,
 				8EC324A8212AD14400E31D4B /* TestCategory+Ext.m in Sources */,
+				8EC324AE212AD84A00E31D4B /* CategoryTool.m in Sources */,
 				8E86DCD12119918200098EFA /* main.m in Sources */,
 				8E86DCD92119986200098EFA /* MyObjc.c in Sources */,
 				8E3666EB2122AE42009CE9E9 /* BayMaxStubObject.m in Sources */,

@@ -9,7 +9,14 @@
 #import "TestCategory+Ext.h"
 
 @implementation TestCategory (Ext)
+
 - (void)testMethod{
+    //如何在分类中，调用原有类的方法
     NSLog(@"category test category method");
 }
+
+- (void)testMethodwithParam:(NSString *)p1{
+    NSLog(@"category p1 is %@",p1);
+}
+
 @end

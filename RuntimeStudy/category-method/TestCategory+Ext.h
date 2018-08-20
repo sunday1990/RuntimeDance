@@ -9,5 +9,6 @@
 #import "TestCategory.h"
 
 @interface TestCategory (Ext)
-
+- (void)testMethod;
+- (void)testMethodwithParam:(NSString *)p1;
 @end

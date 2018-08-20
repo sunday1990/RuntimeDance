@@ -17,7 +17,7 @@ static id (*new_msgSend2)(id, SEL, id, id,...) = (id (*)(id, SEL, id, id,...)) o
 
 @implementation HardForardInvoation
 
-void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
+static inline  void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
     NSLog(@"%@被forward",NSStringFromSelector(originalSelector));
     //获取原有的msg_forward
     IMP forwardImp = (IMP)_objc_msgForward;

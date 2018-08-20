@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+
+
 #import "DynamicObject.h"
 #import "Father.h"
 #import "Son.h"
@@ -18,8 +20,11 @@
 #import "HardForardInvoation.h"
 
 
+
 #import "WeakReference.h"
 #import "WeakReferenceViewController.h"
+
+#import "CategoryTool.h"
 #import "TestCategory.h"
 #import "TestCategory+Ext.h"
 
@@ -93,16 +98,26 @@
 
 - (void)demo4{
     TestCategory *tc = [[TestCategory alloc]init];
-    unsigned int count;
-    Method *methodList = class_copyMethodList([TestCategory class], &count);
-    for (int i = count-1; i>0; i--) {
-        Method method = methodList[i];
-        if ([NSStringFromSelector(method_getName(method)) isEqualToString:@"testMethod"]) {
-            ((void(*)(id,SEL))method_getImplementation(method))(self,method_getName(method));
-            break;
-        }
-    }
+    CategoryTool *tool = [[CategoryTool alloc]init];
+
+    //方式一
+//    unsigned int count;
+//    Method *methodList = class_copyMethodList([TestCategory class], &count);
+//    for (int i = count-1; i>0; i--) {
+//        Method method = methodList[i];
+//        if ([NSStringFromSelector(method_getName(method)) isEqualToString:@"testMethod"]) {
+//            ((void(*)(id,SEL))method_getImplementation(method))(self,method_getName(method));
+//            break;
+//        }
+//    }
+    
+    //方式二
+    [tool callOriginalSelWithClass:tc.class selector:@selector(testMethod)];
+    [tool callOriginalSelWithClass:tc.class selector:@selector(testMethodwithParam:)];
+
+    //公共代码
     [tc testMethod];
+    [tc testMethodwithParam:@"1"];
 }
 
 @end

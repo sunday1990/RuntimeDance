@@ -12,5 +12,7 @@
 
 - (void)testMethod;
 - (void)testMethod1;
+- (void)testMethodwithParam:(NSString *)p1;
+
 
 @end
