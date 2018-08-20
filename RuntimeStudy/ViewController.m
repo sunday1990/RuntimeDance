@@ -17,6 +17,9 @@
 
 #import "HardForardInvoation.h"
 
+#import "WeakReference.h"
+
+
 @interface ViewController ()
 
 @end
@@ -29,6 +32,7 @@
     [self demo0];
     [self demo1];
     [self demo2];
+    [self demo3];
 }
 
 
@@ -69,4 +73,13 @@
     NSString *returnvalue  = [hardInvocation returnValuetestWithNoParams];
     NSLog(@"return value :%@",returnvalue);
 }
+
+- (void)demo3{
+    Father *father = [[Father alloc]init];
+    WeakReference *weakRef = [[WeakReference alloc]initWithTarget:father];
+    [weakRef performSelector:NSSelectorFromString(@"method0")];
+    father = nil;
+    [weakRef performSelector:NSSelectorFromString(@"method0")];
+}
+
 @end

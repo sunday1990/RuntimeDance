@@ -10,4 +10,8 @@
 
 @interface WeakReference : NSObject
 
+@property (nullable, nonatomic, weak, readonly) id target;
+
+- (instancetype)initWithTarget:(id)target;
+
 @end
