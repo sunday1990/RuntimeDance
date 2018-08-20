@@ -10,6 +10,9 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+
 @implementation DynamicObject
 
 void dynamicMethod(id target,SEL selector){
@@ -80,5 +83,6 @@ Class dynamicOriginalClass(id target,SEL selector){
     NSLog(@"父类方法被调用");
 }
 
-
 @end
+
+#pragma clang diagnostic pop

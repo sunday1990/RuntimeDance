@@ -24,6 +24,7 @@
 		8E86DCDF2119AEC000098EFA /* MyList.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCDE2119AEC000098EFA /* MyList.c */; };
 		8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC32499212AA40200E31D4B /* HardForardInvoation.m */; };
 		8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3249D212AA55200E31D4B /* WeakReference.m */; };
+		8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A0212ABC2800E31D4B /* WeakReferenceViewController.m */; };
 		8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		8EC32499212AA40200E31D4B /* HardForardInvoation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardForardInvoation.m; sourceTree = "<group>"; };
 		8EC3249C212AA55200E31D4B /* WeakReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakReference.h; sourceTree = "<group>"; };
 		8EC3249D212AA55200E31D4B /* WeakReference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakReference.m; sourceTree = "<group>"; };
+		8EC3249F212ABC2800E31D4B /* WeakReferenceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakReferenceViewController.h; sourceTree = "<group>"; };
+		8EC324A0212ABC2800E31D4B /* WeakReferenceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakReferenceViewController.m; sourceTree = "<group>"; };
 		8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Category.h"; sourceTree = "<group>"; };
 		8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +170,8 @@
 			children = (
 				8EC3249C212AA55200E31D4B /* WeakReference.h */,
 				8EC3249D212AA55200E31D4B /* WeakReference.m */,
+				8EC3249F212ABC2800E31D4B /* WeakReferenceViewController.h */,
+				8EC324A0212ABC2800E31D4B /* WeakReferenceViewController.m */,
 			);
 			path = "weak-reference";
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				8E86DCC32119918000098EFA /* AppDelegate.m in Sources */,
 				8E3666E72122AD51009CE9E9 /* BayMaxZombieObject.m in Sources */,
 				8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */,
+				8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */,
 				8E86DCDF2119AEC000098EFA /* MyList.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

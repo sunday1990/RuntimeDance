@@ -12,4 +12,8 @@
 - (void)method0{
     NSLog(@"父类方法");
 }
+
+- (void)dealloc{
+    NSLog(@"dealloc father");
+}
 @end

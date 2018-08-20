@@ -18,6 +18,7 @@
 #import "HardForardInvoation.h"
 
 #import "WeakReference.h"
+#import "WeakReferenceViewController.h"
 
 
 @interface ViewController ()
@@ -34,7 +35,6 @@
     [self demo2];
     [self demo3];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -75,11 +75,17 @@
 }
 
 - (void)demo3{
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     Father *father = [[Father alloc]init];
     WeakReference *weakRef = [[WeakReference alloc]initWithTarget:father];
     [weakRef performSelector:NSSelectorFromString(@"method0")];
-    father = nil;
     [weakRef performSelector:NSSelectorFromString(@"method0")];
+    [father method0];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    WeakReferenceViewController *weakRefVC = [[WeakReferenceViewController alloc]init];
+    [self presentViewController:weakRefVC animated:YES completion:nil];
 }
 
 @end

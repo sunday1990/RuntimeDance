@@ -8,14 +8,12 @@
 
 #import "WeakReference.h"
 
-@interface WeakReference ()
-
-@end
-
 @implementation WeakReference
 
 - (instancetype)initWithTarget:(id)target{
-    _target = target;
+    if (self = [super init]) {
+      _target = target;
+    }    
     return self;
 }
 
