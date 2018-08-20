@@ -62,7 +62,7 @@ void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
     //方法一，通过invocation调用
     NSArray *args = [anInvocation getAllArguments];
     NSString *originalSelector = [NSString stringWithFormat:@"original_%@",NSStringFromSelector(anInvocation.selector)];
-    //在此处调用js方法，将参数和方法传递出去,同时在此处可以统计方法的调用次数    
+    //在此处调用js方法，将参数和方法传递出去,同时在此处可以统计方法的调用次数
     //将selector转为原有的selector
     anInvocation.selector = NSSelectorFromString(originalSelector);
     if (class_respondsToSelector([self class], NSSelectorFromString(originalSelector))) {

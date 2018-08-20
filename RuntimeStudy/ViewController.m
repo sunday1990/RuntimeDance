@@ -17,9 +17,11 @@
 
 #import "HardForardInvoation.h"
 
+
 #import "WeakReference.h"
 #import "WeakReferenceViewController.h"
-
+#import "TestCategory.h"
+#import "TestCategory+Ext.h"
 
 @interface ViewController ()
 
@@ -34,6 +36,7 @@
     [self demo1];
     [self demo2];
     [self demo3];
+    [self demo4];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,6 +89,20 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     WeakReferenceViewController *weakRefVC = [[WeakReferenceViewController alloc]init];
     [self presentViewController:weakRefVC animated:YES completion:nil];
+}
+
+- (void)demo4{
+    TestCategory *tc = [[TestCategory alloc]init];
+    unsigned int count;
+    Method *methodList = class_copyMethodList([TestCategory class], &count);
+    for (int i = count-1; i>0; i--) {
+        Method method = methodList[i];
+        if ([NSStringFromSelector(method_getName(method)) isEqualToString:@"testMethod"]) {
+            ((void(*)(id,SEL))method_getImplementation(method))(self,method_getName(method));
+            break;
+        }
+    }
+    [tc testMethod];
 }
 
 @end
