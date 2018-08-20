@@ -22,6 +22,8 @@
 		8E86DCD92119986200098EFA /* MyObjc.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCD82119986200098EFA /* MyObjc.c */; };
 		8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCDB21199E3D00098EFA /* MyRuntime.c */; };
 		8E86DCDF2119AEC000098EFA /* MyList.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCDE2119AEC000098EFA /* MyList.c */; };
+		8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC32499212AA40200E31D4B /* HardForardInvoation.m */; };
+		8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3249D212AA55200E31D4B /* WeakReference.m */; };
 		8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,10 @@
 		8E86DCDB21199E3D00098EFA /* MyRuntime.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MyRuntime.c; sourceTree = "<group>"; };
 		8E86DCDD2119AEC000098EFA /* MyList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyList.h; sourceTree = "<group>"; };
 		8E86DCDE2119AEC000098EFA /* MyList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MyList.c; sourceTree = "<group>"; };
+		8EC32498212AA40200E31D4B /* HardForardInvoation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HardForardInvoation.h; sourceTree = "<group>"; };
+		8EC32499212AA40200E31D4B /* HardForardInvoation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardForardInvoation.m; sourceTree = "<group>"; };
+		8EC3249C212AA55200E31D4B /* WeakReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakReference.h; sourceTree = "<group>"; };
+		8EC3249D212AA55200E31D4B /* WeakReference.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakReference.m; sourceTree = "<group>"; };
 		8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Category.h"; sourceTree = "<group>"; };
 		8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +133,7 @@
 		8E86DCC02119918000098EFA /* RuntimeStudy */ = {
 			isa = PBXGroup;
 			children = (
+				8EC3249B212AA53D00E31D4B /* weak-reference */,
 				8EC32497212AA38D00E31D4B /* msg_forward */,
 				8E3667092122C08E009CE9E9 /* Dynamic */,
 				8E3667082122C07A009CE9E9 /* Struct */,
@@ -149,8 +156,19 @@
 			children = (
 				8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */,
 				8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */,
+				8EC32498212AA40200E31D4B /* HardForardInvoation.h */,
+				8EC32499212AA40200E31D4B /* HardForardInvoation.m */,
 			);
 			path = msg_forward;
+			sourceTree = "<group>";
+		};
+		8EC3249B212AA53D00E31D4B /* weak-reference */ = {
+			isa = PBXGroup;
+			children = (
+				8EC3249C212AA55200E31D4B /* WeakReference.h */,
+				8EC3249D212AA55200E31D4B /* WeakReference.m */,
+			);
+			path = "weak-reference";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +246,7 @@
 				8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */,
 				8E3667122123B0C8009CE9E9 /* Son.m in Sources */,
 				8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */,
+				8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */,
 				8E86DCC62119918000098EFA /* ViewController.m in Sources */,
 				8E3666F62122B90A009CE9E9 /* NSObject+BayMaxZombie.mm in Sources */,
 				8E86DCD12119918200098EFA /* main.m in Sources */,
@@ -235,6 +254,7 @@
 				8E3666EB2122AE42009CE9E9 /* BayMaxStubObject.m in Sources */,
 				8E86DCC32119918000098EFA /* AppDelegate.m in Sources */,
 				8E3666E72122AD51009CE9E9 /* BayMaxZombieObject.m in Sources */,
+				8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */,
 				8E86DCDF2119AEC000098EFA /* MyList.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

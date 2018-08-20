@@ -14,6 +14,9 @@
 #import "Father.h"
 #import "Son.h"
 
+
+#import "HardForardInvoation.h"
+
 @interface ViewController ()
 
 @end
@@ -25,6 +28,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self demo0];
     [self demo1];
+    [self demo2];
 }
 
 
@@ -57,4 +61,12 @@
     }
 }
 
+- (void)demo2{
+    HardForardInvoation *hardInvocation = [HardForardInvoation new];
+    [hardInvocation hardForwardInvocation];
+    [hardInvocation testWithNoParams];
+    [hardInvocation testWithParam:@"A" param2:@"B"];
+    NSString *returnvalue  = [hardInvocation returnValuetestWithNoParams];
+    NSLog(@"return value :%@",returnvalue);
+}
 @end
