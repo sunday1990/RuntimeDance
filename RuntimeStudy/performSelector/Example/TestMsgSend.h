@@ -20,4 +20,6 @@
 
 + (void)selector1WithP0:(NSString *)p0 p1:(NSString *)p1 p2:(NSString *)p2 p3:(NSString *)p3;
 
++ (NSString *)classSelector0WithParam:(NSString *)param;
+
 @end

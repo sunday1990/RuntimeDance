@@ -133,7 +133,8 @@
     [tm callSelector:@selector(selector0WithIntParam:) error:nil,1, nil];
     int result = [[tm callSelector:@selector(selector1WithIntParam:) error:nil,1, nil] intValue];
     NSLog(@"result is %d",result);
-    
+    NSString *resultStr = [TestMsgSend callSelector:@selector(classSelector0WithParam:) error:nil,@"hello",nil];
+    NSLog(@"result string is %@",resultStr);
 }
 
 @end

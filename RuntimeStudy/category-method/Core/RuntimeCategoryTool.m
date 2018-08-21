@@ -9,7 +9,7 @@
 #import "RuntimeCategoryTool.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-#import "NSInvocation+Category.h"
+#import "NSInvocation+Arguments.h"
 
 static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
     IMP toolForwardImp = class_getMethodImplementation([RuntimeCategoryTool class], @selector(forwardInvocation:));
@@ -74,7 +74,7 @@ static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelecto
     NSArray *args = [anInvocation getAllArguments];
     unsigned int count;
     Method *methodList = class_copyMethodList([anInvocation.target class], &count);
-    for (int i = count-1; i>0; i--) {
+    for (int i = count-1; i>=0; i--) {
         Method method = methodList[i];
         if ([NSStringFromSelector(method_getName(method)) isEqualToString:NSStringFromSelector(anInvocation.selector)]) {
             if ([strategy isEqualToString:@"after_category"]) {

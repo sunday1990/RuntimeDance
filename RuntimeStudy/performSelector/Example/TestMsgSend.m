@@ -33,4 +33,9 @@
 
 }
 
++ (NSString *)classSelector0WithParam:(NSString *)param{
+    return param;
+}
+
+
 @end

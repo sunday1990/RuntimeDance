@@ -15,6 +15,7 @@
 		8E3667122123B0C8009CE9E9 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3667112123B0C8009CE9E9 /* Son.m */; };
 		8E81C68A212BEDA000B80EC3 /* RuntimeMsgSendTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E81C689212BEDA000B80EC3 /* RuntimeMsgSendTool.m */; };
 		8E81C68D212BF77B00B80EC3 /* TestMsgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E81C68C212BF77B00B80EC3 /* TestMsgSend.m */; };
+		8E81C690212C0E9900B80EC3 /* NSInvocation+Arguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E81C68F212C0E9900B80EC3 /* NSInvocation+Arguments.m */; };
 		8E86DCC32119918000098EFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC22119918000098EFA /* AppDelegate.m */; };
 		8E86DCC62119918000098EFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC52119918000098EFA /* ViewController.m */; };
 		8E86DCC92119918000098EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E86DCC72119918000098EFA /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		8EC324A5212AD10D00E31D4B /* TestCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A4212AD10D00E31D4B /* TestCategory.m */; };
 		8EC324A8212AD14400E31D4B /* TestCategory+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A7212AD14400E31D4B /* TestCategory+Ext.m */; };
 		8EC324AE212AD84A00E31D4B /* RuntimeCategoryTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324AD212AD84A00E31D4B /* RuntimeCategoryTool.m */; };
-		8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +50,8 @@
 		8E81C689212BEDA000B80EC3 /* RuntimeMsgSendTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeMsgSendTool.m; sourceTree = "<group>"; };
 		8E81C68B212BF77B00B80EC3 /* TestMsgSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMsgSend.h; sourceTree = "<group>"; };
 		8E81C68C212BF77B00B80EC3 /* TestMsgSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMsgSend.m; sourceTree = "<group>"; };
+		8E81C68E212C0E9900B80EC3 /* NSInvocation+Arguments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Arguments.h"; sourceTree = "<group>"; };
+		8E81C68F212C0E9900B80EC3 /* NSInvocation+Arguments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Arguments.m"; sourceTree = "<group>"; };
 		8E86DCBE2119918000098EFA /* RuntimeStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E86DCC12119918000098EFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E86DCC22119918000098EFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,8 +80,6 @@
 		8EC324A7212AD14400E31D4B /* TestCategory+Ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TestCategory+Ext.m"; sourceTree = "<group>"; };
 		8EC324AC212AD84A00E31D4B /* RuntimeCategoryTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeCategoryTool.h; sourceTree = "<group>"; };
 		8EC324AD212AD84A00E31D4B /* RuntimeCategoryTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeCategoryTool.m; sourceTree = "<group>"; };
-		8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Category.h"; sourceTree = "<group>"; };
-		8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +135,10 @@
 		8E81C680212BE9A600B80EC3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8E81C68E212C0E9900B80EC3 /* NSInvocation+Arguments.h */,
+				8E81C68F212C0E9900B80EC3 /* NSInvocation+Arguments.m */,
 				8EC324AC212AD84A00E31D4B /* RuntimeCategoryTool.h */,
 				8EC324AD212AD84A00E31D4B /* RuntimeCategoryTool.m */,
-				8ED70A6E2121834200CBA59B /* NSInvocation+Category.h */,
-				8ED70A6F2121834200CBA59B /* NSInvocation+Category.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -337,7 +337,6 @@
 			files = (
 				8E36670C2122C526009CE9E9 /* DynamicObject.m in Sources */,
 				8E36670F2123B0C2009CE9E9 /* Father.m in Sources */,
-				8ED70A702121834200CBA59B /* NSInvocation+Category.m in Sources */,
 				8E3667122123B0C8009CE9E9 /* Son.m in Sources */,
 				8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */,
 				8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */,
@@ -354,6 +353,7 @@
 				8E86DCC32119918000098EFA /* AppDelegate.m in Sources */,
 				8E3666E72122AD51009CE9E9 /* BayMaxZombieObject.m in Sources */,
 				8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */,
+				8E81C690212C0E9900B80EC3 /* NSInvocation+Arguments.m in Sources */,
 				8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */,
 				8E86DCDF2119AEC000098EFA /* MyList.c in Sources */,
 			);

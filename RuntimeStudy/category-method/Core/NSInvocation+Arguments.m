@@ -1,18 +1,16 @@
 //
-//  NSInvocation+Category.m
+//  NSInvocation+Arguments.m
 //  RuntimeStudy
 //
-//  Created by zhugefang on 2018/8/13.
+//  Created by zhugefang on 2018/8/21.
 //  Copyright © 2018年 zhugefang. All rights reserved.
 //
 
-#import "NSInvocation+Category.h"
-#import <libkern/OSAtomic.h>
+#import "NSInvocation+Arguments.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 
-@implementation NSInvocation (Category)
-
+@implementation NSInvocation (Arguments)
 - (NSArray *)getAllArguments {
     NSMutableArray *argumentsArray = [NSMutableArray array];
     for (NSUInteger idx = 2; idx < self.methodSignature.numberOfArguments; idx++) {
@@ -85,5 +83,4 @@
     return nil;
 #undef WRAP_AND_RETURN
 }
-
 @end

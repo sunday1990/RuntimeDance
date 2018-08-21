@@ -309,7 +309,3 @@ struct dummy arg = va_arg(args, struct dummy); \
     }
 }
 @end
-
-@implementation RuntimeMsgSendTool
-
-@end
