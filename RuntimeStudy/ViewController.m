@@ -24,7 +24,7 @@
 #import "WeakReference.h"
 #import "WeakReferenceViewController.h"
 
-#import "CategoryTool.h"
+#import "RuntimeTool.h"
 #import "TestCategory.h"
 #import "TestCategory+Ext.h"
 
@@ -98,9 +98,9 @@
 
 - (void)demo4{
     TestCategory *tc = [[TestCategory alloc]init];
-    CategoryTool *tool = [[CategoryTool alloc]init];
+    RuntimeTool *tool = [RuntimeTool sharedInstance];
 
-    //方式一
+    //方式一,直接调用
 //    unsigned int count;
 //    Method *methodList = class_copyMethodList([TestCategory class], &count);
 //    for (int i = count-1; i>0; i--) {
@@ -111,13 +111,15 @@
 //        }
 //    }
     
+    
     //方式二
-    [tool callOriginalSelWithClass:tc.class selector:@selector(testMethod)];
-    [tool callOriginalSelWithClass:tc.class selector:@selector(testMethodwithParam:)];
-
+    [tool callOriginalSelector:@selector(testMethod) insteadofCategoryInClass:tc.class];
+    [tool callOriginalSelector:@selector(testMethodwithParam:) beforeCategoryInClass:tc.class];
+    [tool callOriginalSelector:@selector(testMethodwithParam:param2:) afterCategoryInClass:tc.class];
     //公共代码
     [tc testMethod];
     [tc testMethodwithParam:@"1"];
+    [tc testMethodwithParam:@"p1" param2:@"p2"];
 }
 
 @end
