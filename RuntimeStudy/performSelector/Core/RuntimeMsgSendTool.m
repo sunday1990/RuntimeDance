@@ -11,6 +11,22 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 
+static NSString *extractStructName(NSString *typeEncodeString)
+{
+    NSArray *array = [typeEncodeString componentsSeparatedByString:@"="];
+    NSString *typeString = array[0];
+    int firstValidIndex = 0;
+    for (int i = 0; i< typeString.length; i++) {
+        char c = [typeString characterAtIndex:i];
+        if (c == '{' || c=='_') {
+            firstValidIndex++;
+        }else {
+            break;
+        }
+    }
+    return [typeString substringFromIndex:firstValidIndex];
+}
+
 @implementation NSObject (RuntimeMsgSend)
 //类方法
 + (id)callSelector:(SEL)selector error:(NSError *__autoreleasing *)error,... NS_REQUIRES_NIL_TERMINATION{
@@ -23,7 +39,8 @@
     [NSObject setInv:inv withSig:sig andArgs:args];
     va_end(args);
     [inv invoke];
-    return nil;
+    id returnValue = [self returnValueOfInv:inv sig:sig selector:selector];
+    return returnValue;
 }
 
 //实例方法
@@ -37,7 +54,79 @@
     [NSObject setInv:inv withSig:sig andArgs:args];
     va_end(args);
     [inv invoke];
-    return nil;
+    id returnValue = [[self class] returnValueOfInv:inv sig:sig selector:selector];
+    return returnValue;
+}
+
++ (id)returnValueOfInv:(NSInvocation *)invocation sig:(NSMethodSignature *)sig selector:(SEL)selector{
+    NSString *selectorName = NSStringFromSelector(selector);
+    char returnType[255];
+    strcpy(returnType, [sig methodReturnType]);
+    id returnValue = nil;
+    if (strncmp(returnType, "v", 1) != 0) {
+        if (strncmp(returnType, "@", 1) == 0) {
+            void *result;
+            [invocation getReturnValue:&result];
+            if ([selectorName isEqualToString:@"alloc"] || [selectorName isEqualToString:@"new"] ||
+                [selectorName isEqualToString:@"copy"] || [selectorName isEqualToString:@"mutableCopy"]) {
+                returnValue = (__bridge_transfer id)result;
+            } else {
+                returnValue = (__bridge id)result;
+            }
+            return returnValue;
+        } else {
+            switch (returnType[0] == 'r' ? returnType[1] : returnType[0]) {
+        #define CALL_RET_CASE(_typeString, _type) \
+        case _typeString: {                              \
+            _type tempResultSet; \
+            [invocation getReturnValue:&tempResultSet];\
+            returnValue = @(tempResultSet); \
+            break; \
+        }
+                    CALL_RET_CASE('c', char)
+                    CALL_RET_CASE('C', unsigned char)
+                    CALL_RET_CASE('s', short)
+                    CALL_RET_CASE('S', unsigned short)
+                    CALL_RET_CASE('i', int)
+                    CALL_RET_CASE('I', unsigned int)
+                    CALL_RET_CASE('l', long)
+                    CALL_RET_CASE('L', unsigned long)
+                    CALL_RET_CASE('q', long long)
+                    CALL_RET_CASE('Q', unsigned long long)
+                    CALL_RET_CASE('f', float)
+                    CALL_RET_CASE('d', double)
+                    CALL_RET_CASE('B', BOOL)
+                case '{': {
+                    NSString *typeString = extractStructName([NSString stringWithUTF8String:returnType]);
+        #define CALL_RET_STRUCT(_type) \
+        if ([typeString rangeOfString:@#_type].location != NSNotFound) {    \
+            _type result;   \
+            [invocation getReturnValue:&result];    \
+            NSValue * returnValue = [NSValue valueWithBytes:&(result) objCType:@encode(_type)];\
+            return returnValue;\
+        }
+                    CALL_RET_STRUCT(CGRect)
+                    CALL_RET_STRUCT(CGPoint)
+                    CALL_RET_STRUCT(CGSize)
+                    CALL_RET_STRUCT(NSRange)
+                    CALL_RET_STRUCT(CGAffineTransform)
+                    CALL_RET_STRUCT(UIEdgeInsets)
+                    CALL_RET_STRUCT(UIOffset)
+                    CALL_RET_STRUCT(CGVector)
+                    break;
+                }
+                case '*':
+                case '^': {//函数指针
+                    break;
+                }
+                case '#': {
+                    break;
+                }
+            }
+            return returnValue;
+        }
+    }
+    return returnValue;
 }
 
 /**

@@ -128,7 +128,12 @@
     TestMsgSend *tm = [[TestMsgSend alloc]init];
     [tm callSelector:@selector(selector1WithP0:p1:p2:p3:) error:nil,@"1",@"2",@"3",@"4",nil];
     [TestMsgSend callSelector:@selector(selector1WithP0:p1:p2:p3:) error:nil,@"1",@"2",@"3",@"4",nil];
-
+    NSString *returnValue = [tm callSelector:@selector(selector0WithIntParam:) error:nil,1, nil];
+    NSLog(@"msg send return value is %@",returnValue);
+    [tm callSelector:@selector(selector0WithIntParam:) error:nil,1, nil];
+    int result = [[tm callSelector:@selector(selector1WithIntParam:) error:nil,1, nil] intValue];
+    NSLog(@"result is %d",result);
+    
 }
 
 @end

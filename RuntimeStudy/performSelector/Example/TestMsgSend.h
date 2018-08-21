@@ -12,7 +12,9 @@
 
 - (void)selector0;
 
-- (void)selector0WithIntParam:(int)a;
+- (NSString *)selector0WithIntParam:(int)a;
+
+- (int)selector1WithIntParam:(int)a;
 
 - (void)selector1WithP0:(NSString *)p0 p1:(NSString *)p1 p2:(NSString *)p2 p3:(NSString *)p3;
 
