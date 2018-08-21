@@ -24,7 +24,7 @@
 #import "WeakReference.h"
 #import "WeakReferenceViewController.h"
 
-#import "RuntimeTool.h"
+#import "RuntimeCategoryTool.h"
 #import "TestCategory.h"
 #import "TestCategory+Ext.h"
 
@@ -98,7 +98,7 @@
 
 - (void)demo4{
     TestCategory *tc = [[TestCategory alloc]init];
-    RuntimeTool *tool = [RuntimeTool sharedInstance];
+    RuntimeCategoryTool *tool = [RuntimeCategoryTool sharedInstance];
 
     //方式一,直接调用
 //    unsigned int count;

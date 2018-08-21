@@ -6,13 +6,13 @@
 //  Copyright © 2018年 zhugefang. All rights reserved.
 //
 
-#import "RuntimeTool.h"
+#import "RuntimeCategoryTool.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "NSInvocation+Category.h"
 
 static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
-    IMP toolForwardImp = class_getMethodImplementation([RuntimeTool class], @selector(forwardInvocation:));
+    IMP toolForwardImp = class_getMethodImplementation([ RuntimeCategoryTool class], @selector(forwardInvocation:));
     IMP forwardIMP = (IMP)_objc_msgForward;
     const char *types = "v@:@";
     if (!class_respondsToSelector(cls, @selector(forwardInvocation:))) {
@@ -28,19 +28,19 @@ static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelecto
     class_replaceMethod(cls, originalSelector, forwardIMP, types);
 }
 
-@interface RuntimeTool ()
+@interface  RuntimeCategoryTool ()
 
 @property (nonatomic, strong) NSMutableDictionary *positionMap;
 
 @end
 
-@implementation RuntimeTool
+@implementation  RuntimeCategoryTool
 
 + (instancetype)sharedInstance{
-    static RuntimeTool *instance;
+    static  RuntimeCategoryTool *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[RuntimeTool alloc] init];
+        instance = [[ RuntimeCategoryTool alloc] init];
     });
     return instance;
 }
@@ -54,23 +54,23 @@ static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelecto
 
 //调用分类方法的时候，会越过分类，直接调用原有的方法。
 - (void)callOriginalSelector:(SEL)sel insteadofCategoryInClass:(Class)cls{
-    [[RuntimeTool sharedInstance].positionMap setObject:@"instead_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
+    [[ RuntimeCategoryTool sharedInstance].positionMap setObject:@"instead_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
     hardforwardSelectorToInvocation(cls, sel);
 }
 
 - (void)callOriginalSelector:(SEL)sel beforeCategoryInClass:(Class)cls{
-    [[RuntimeTool sharedInstance].positionMap setObject:@"before_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
+    [[ RuntimeCategoryTool sharedInstance].positionMap setObject:@"before_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
     hardforwardSelectorToInvocation(cls, sel);
 }
 
 //调用分类方法之后，会再调用原有的方法
 - (void)callOriginalSelector:(SEL)sel afterCategoryInClass:(Class)cls{
-    [[RuntimeTool sharedInstance].positionMap setObject:@"after_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
+    [[ RuntimeCategoryTool sharedInstance].positionMap setObject:@"after_category" forKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass(cls),NSStringFromSelector(sel)]];
     hardforwardSelectorToInvocation(cls, sel);
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
-    NSString *strategy = [[RuntimeTool sharedInstance].positionMap valueForKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass([anInvocation.target class]),NSStringFromSelector(anInvocation.selector)]];
+    NSString *strategy = [[ RuntimeCategoryTool sharedInstance].positionMap valueForKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass([anInvocation.target class]),NSStringFromSelector(anInvocation.selector)]];
     NSArray *args = [anInvocation getAllArguments];
     unsigned int count;
     Method *methodList = class_copyMethodList([anInvocation.target class], &count);

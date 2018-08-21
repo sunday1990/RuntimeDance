@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RuntimeTool : NSObject
+@interface RuntimeCategoryTool : NSObject
 
 + (instancetype)sharedInstance;
 //调用分类方法的时候，会越过分类，直接调用原有的方法
