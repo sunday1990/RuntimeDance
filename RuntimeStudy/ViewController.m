@@ -28,6 +28,9 @@
 #import "TestCategory.h"
 #import "TestCategory+Ext.h"
 
+#import "RuntimeMsgSendTool.h"
+#import "TestMsgSend.h"
+
 @interface ViewController ()
 
 @end
@@ -42,6 +45,7 @@
     [self demo2];
     [self demo3];
     [self demo4];
+    [self demo5];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,8 +114,6 @@
 //            break;
 //        }
 //    }
-    
-    
     //方式二
     [tool callOriginalSelector:@selector(testMethod) insteadofCategoryInClass:tc.class];
     [tool callOriginalSelector:@selector(testMethodwithParam:) beforeCategoryInClass:tc.class];
@@ -120,6 +122,13 @@
     [tc testMethod];
     [tc testMethodwithParam:@"1"];
     [tc testMethodwithParam:@"p1" param2:@"p2"];
+}
+
+- (void)demo5{
+    TestMsgSend *tm = [[TestMsgSend alloc]init];
+    [tm callSelector:@selector(selector1WithP0:p1:p2:p3:) error:nil,@"1",@"2",@"3",@"4",nil];
+    [TestMsgSend callSelector:@selector(selector1WithP0:p1:p2:p3:) error:nil,@"1",@"2",@"3",@"4",nil];
+
 }
 
 @end

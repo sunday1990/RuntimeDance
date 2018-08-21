@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RuntimeStudy/ViewController.m"
-            timestampString = "556526893.3444"
+            filePath = "RuntimeStudy/category-method/TestCategory.m"
+            timestampString = "556525130.223407"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-demo4"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-testMethod"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RuntimeStudy/category-method/TestCategory.m"
-            timestampString = "556525130.223407"
+            filePath = "RuntimeStudy/ViewController.m"
+            timestampString = "556530577.7691211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-testMethod"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-demo5"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

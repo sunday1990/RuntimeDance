@@ -12,7 +12,7 @@
 #import "NSInvocation+Category.h"
 
 static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelector){
-    IMP toolForwardImp = class_getMethodImplementation([ RuntimeCategoryTool class], @selector(forwardInvocation:));
+    IMP toolForwardImp = class_getMethodImplementation([RuntimeCategoryTool class], @selector(forwardInvocation:));
     IMP forwardIMP = (IMP)_objc_msgForward;
     const char *types = "v@:@";
     if (!class_respondsToSelector(cls, @selector(forwardInvocation:))) {

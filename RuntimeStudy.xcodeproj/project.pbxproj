@@ -13,6 +13,8 @@
 		8E36670C2122C526009CE9E9 /* DynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36670B2122C526009CE9E9 /* DynamicObject.m */; };
 		8E36670F2123B0C2009CE9E9 /* Father.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36670E2123B0C2009CE9E9 /* Father.m */; };
 		8E3667122123B0C8009CE9E9 /* Son.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3667112123B0C8009CE9E9 /* Son.m */; };
+		8E81C68A212BEDA000B80EC3 /* RuntimeMsgSendTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E81C689212BEDA000B80EC3 /* RuntimeMsgSendTool.m */; };
+		8E81C68D212BF77B00B80EC3 /* TestMsgSend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E81C68C212BF77B00B80EC3 /* TestMsgSend.m */; };
 		8E86DCC32119918000098EFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC22119918000098EFA /* AppDelegate.m */; };
 		8E86DCC62119918000098EFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCC52119918000098EFA /* ViewController.m */; };
 		8E86DCC92119918000098EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E86DCC72119918000098EFA /* Main.storyboard */; };
@@ -44,6 +46,10 @@
 		8E36670E2123B0C2009CE9E9 /* Father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Father.m; sourceTree = "<group>"; };
 		8E3667102123B0C8009CE9E9 /* Son.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Son.h; sourceTree = "<group>"; };
 		8E3667112123B0C8009CE9E9 /* Son.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Son.m; sourceTree = "<group>"; };
+		8E81C688212BEDA000B80EC3 /* RuntimeMsgSendTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeMsgSendTool.h; sourceTree = "<group>"; };
+		8E81C689212BEDA000B80EC3 /* RuntimeMsgSendTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeMsgSendTool.m; sourceTree = "<group>"; };
+		8E81C68B212BF77B00B80EC3 /* TestMsgSend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMsgSend.h; sourceTree = "<group>"; };
+		8E81C68C212BF77B00B80EC3 /* TestMsgSend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMsgSend.m; sourceTree = "<group>"; };
 		8E86DCBE2119918000098EFA /* RuntimeStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E86DCC12119918000098EFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E86DCC22119918000098EFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -178,6 +184,8 @@
 		8E81C686212BEC7100B80EC3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8E81C688212BEDA000B80EC3 /* RuntimeMsgSendTool.h */,
+				8E81C689212BEDA000B80EC3 /* RuntimeMsgSendTool.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -185,6 +193,8 @@
 		8E81C687212BEC7500B80EC3 /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				8E81C68B212BF77B00B80EC3 /* TestMsgSend.h */,
+				8E81C68C212BF77B00B80EC3 /* TestMsgSend.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -331,10 +341,12 @@
 				8E3667122123B0C8009CE9E9 /* Son.m in Sources */,
 				8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */,
 				8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */,
+				8E81C68D212BF77B00B80EC3 /* TestMsgSend.m in Sources */,
 				8EC324A5212AD10D00E31D4B /* TestCategory.m in Sources */,
 				8E86DCC62119918000098EFA /* ViewController.m in Sources */,
 				8E3666F62122B90A009CE9E9 /* NSObject+BayMaxZombie.mm in Sources */,
 				8EC324A8212AD14400E31D4B /* TestCategory+Ext.m in Sources */,
+				8E81C68A212BEDA000B80EC3 /* RuntimeMsgSendTool.m in Sources */,
 				8EC324AE212AD84A00E31D4B /* RuntimeCategoryTool.m in Sources */,
 				8E86DCD12119918200098EFA /* main.m in Sources */,
 				8E86DCD92119986200098EFA /* MyObjc.c in Sources */,
