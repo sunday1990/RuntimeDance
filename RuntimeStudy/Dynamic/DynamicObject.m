@@ -23,6 +23,12 @@ Class dynamicOriginalClass(id target,SEL selector){
     return [DynamicObject class];
 }
 
+static void addMethodToProtocol(Protocol* protocol, NSString *selectorName, NSString *typeencoding, BOOL isInstance){
+    SEL sel = NSSelectorFromString(selectorName);
+    const char* type = [typeencoding UTF8String];
+    protocol_addMethodDescription(protocol, sel, type, YES, isInstance);
+}
+
 - (id)createDynamicObject{
     //动态创建DynamicCreateObject的子类，并调用一个方法
     Class Myclass = objc_allocateClassPair([DynamicObject class], "DynamicTestObject", 0);
@@ -81,6 +87,32 @@ Class dynamicOriginalClass(id target,SEL selector){
 
 - (void)testFatherMethod{
     NSLog(@"父类方法被调用");
+}
+
+//创建协议
+- (void)testCreateProtocol{
+    //动态创建协议
+    NSString *testcreateProtocol = @"TestCreateProtocol";
+    const char *protocolName = [testcreateProtocol UTF8String];
+    Protocol *newprotocol = objc_allocateProtocol(protocolName);
+    if (newprotocol) {
+        addMethodToProtocol(newprotocol, @"helloprotocol:", @"v@:@", YES);
+        addMethodToProtocol(newprotocol, @"hahaprotocol", @"v@:", YES);
+        objc_registerProtocol(newprotocol);
+    }
+    //动态添加协议
+    BOOL success = class_addProtocol([self class], newprotocol);
+    if (success) {
+        NSLog(@"protocol 添加成功");
+        unsigned int outcount;
+        Protocol * __unsafe_unretained * protocols = class_copyProtocolList([self class], &outcount);
+        for (int i = 0; i < outcount; i++) {
+            Protocol *protocol = protocols[i];
+            NSLog(@"protocol name: %s", protocol_getName(protocol));
+        }
+    }else{
+        NSLog(@"protocol 添加失败");
+    }    
 }
 
 @end

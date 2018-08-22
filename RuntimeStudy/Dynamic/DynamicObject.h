@@ -12,8 +12,7 @@
  4、改变父类的isa指针，此时外界获取父类的class时，获取的是子类的class,此时父类的方法列表不变
  5、交换方法，将class方法的实现替换掉，又返回了父类
  6、动态的添加成员变量
- 7、动态的创建协议
- 8、动态的创建分类
+ 7、动态的创建、添加协议
  
  */
 #import <Foundation/Foundation.h>
@@ -33,5 +32,7 @@
 - (void)resetISA;
 //测试原有的方法
 - (void)testFatherMethod;
+//创建协议,并添加协议
+- (void)testCreateProtocol;
 
 @end

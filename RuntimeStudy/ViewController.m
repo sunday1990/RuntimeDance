@@ -65,6 +65,7 @@
     CALL_METHOD(object, @selector(changeISAToSubclass));
     CALL_METHOD(object, @selector(resetISA));
     CALL_METHOD(object, @selector(testFatherMethod));
+    CALL_METHOD(object, @selector(testCreateProtocol));
 }
 
 - (void)demo1{
