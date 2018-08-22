@@ -21,7 +21,6 @@
 		8E86DCD12119918200098EFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCD02119918200098EFA /* main.m */; };
 		8E86DCD92119986200098EFA /* MyObjc.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCD82119986200098EFA /* MyObjc.c */; };
 		8E86DCDC21199E3D00098EFA /* MyRuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCDB21199E3D00098EFA /* MyRuntime.c */; };
-		8E86DCDF2119AEC000098EFA /* MyList.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E86DCDE2119AEC000098EFA /* MyList.c */; };
 		8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC32499212AA40200E31D4B /* HardForardInvoation.m */; };
 		8EC3249E212AA55200E31D4B /* WeakReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC3249D212AA55200E31D4B /* WeakReference.m */; };
 		8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC324A0212ABC2800E31D4B /* WeakReferenceViewController.m */; };
@@ -57,8 +56,6 @@
 		8E86DCD82119986200098EFA /* MyObjc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MyObjc.c; sourceTree = "<group>"; };
 		8E86DCDA21199E3D00098EFA /* MyRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRuntime.h; sourceTree = "<group>"; };
 		8E86DCDB21199E3D00098EFA /* MyRuntime.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MyRuntime.c; sourceTree = "<group>"; };
-		8E86DCDD2119AEC000098EFA /* MyList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyList.h; sourceTree = "<group>"; };
-		8E86DCDE2119AEC000098EFA /* MyList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = MyList.c; sourceTree = "<group>"; };
 		8EC32498212AA40200E31D4B /* HardForardInvoation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HardForardInvoation.h; sourceTree = "<group>"; };
 		8EC32499212AA40200E31D4B /* HardForardInvoation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HardForardInvoation.m; sourceTree = "<group>"; };
 		8EC3249C212AA55200E31D4B /* WeakReference.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakReference.h; sourceTree = "<group>"; };
@@ -87,8 +84,6 @@
 		8E3667082122C07A009CE9E9 /* Struct */ = {
 			isa = PBXGroup;
 			children = (
-				8E86DCDD2119AEC000098EFA /* MyList.h */,
-				8E86DCDE2119AEC000098EFA /* MyList.c */,
 				8E86DCD72119986200098EFA /* MyObjc.h */,
 				8E86DCD82119986200098EFA /* MyObjc.c */,
 				8E86DCDA21199E3D00098EFA /* MyRuntime.h */,
@@ -329,7 +324,6 @@
 				8EC3249A212AA40200E31D4B /* HardForardInvoation.m in Sources */,
 				8E81C690212C0E9900B80EC3 /* NSInvocation+Arguments.m in Sources */,
 				8EC324A1212ABC2800E31D4B /* WeakReferenceViewController.m in Sources */,
-				8E86DCDF2119AEC000098EFA /* MyList.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
