@@ -71,6 +71,8 @@ static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelecto
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
     NSString *strategy = [[ RuntimeCategoryTool sharedInstance].positionMap valueForKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass([anInvocation.target class]),NSStringFromSelector(anInvocation.selector)]];
+    //调用结束后，需要从map中移除position，只会生效一次
+    [[RuntimeCategoryTool sharedInstance].positionMap removeObjectForKey:[NSString stringWithFormat:@"%@_%@",NSStringFromClass([anInvocation.target class]),NSStringFromSelector(anInvocation.selector)]];
     NSArray *args = [anInvocation getAllArguments];
     unsigned int count;
     Method *methodList = class_copyMethodList([anInvocation.target class], &count);
@@ -85,27 +87,27 @@ static inline void hardforwardSelectorToInvocation(Class cls,SEL originalSelecto
                 [anInvocation invoke];
             }
             if (args.count == 0) {
-                ((id(*)(id,SEL))method_getImplementation(method))(self,method_getName(method));
+                ((void(*)(id,SEL))method_getImplementation(method))(self,method_getName(method));
             }else if (args.count == 1){
-                  ((id(*)(id,SEL,id))method_getImplementation(method))(self,method_getName(method),args[0]);
+                  ((void(*)(id,SEL,id))method_getImplementation(method))(self,method_getName(method),args[0]);
             }else if (args.count == 2){
-                  ((id(*)(id,SEL,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1]);
+                  ((void(*)(id,SEL,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1]);
             }else if (args.count == 3){
-                  ((id(*)(id,SEL,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2]);
+                  ((void(*)(id,SEL,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2]);
             }else if (args.count == 4){
-                  ((id(*)(id,SEL,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3]);
+                  ((void(*)(id,SEL,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3]);
             }else if (args.count == 5){
-                  ((id(*)(id,SEL,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4]);
+                  ((void(*)(id,SEL,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4]);
             }else if (args.count == 6){
-                  ((id(*)(id,SEL,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5]);
+                  ((void(*)(id,SEL,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5]);
             }else if (args.count == 7){
-                  ((id(*)(id,SEL,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6]);
+                  ((void(*)(id,SEL,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6]);
             }else if (args.count == 8){
-                  ((id(*)(id,SEL,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7]);
+                  ((void(*)(id,SEL,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7]);
             }else if (args.count == 9){
-                 ((id(*)(id,SEL,id,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8]);
+                 ((void(*)(id,SEL,id,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8]);
             }else if (args.count == 10){
-                 ((id(*)(id,SEL,id,id,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9]);
+                 ((void(*)(id,SEL,id,id,id,id,id,id,id,id,id,id))method_getImplementation(method))(self,method_getName(method),args[0],args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8],args[9]);
             }
             if ([strategy isEqualToString:@"before_category"]) {
                 //调用分类中的方法
