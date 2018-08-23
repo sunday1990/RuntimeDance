@@ -34,5 +34,6 @@
 - (void)testFatherMethod;
 //创建协议,并添加协议
 - (void)testCreateProtocol;
-
+//打印当前类的所有子类
+- (NSArray *)findAllOf:(Class)defaultClass;
 @end

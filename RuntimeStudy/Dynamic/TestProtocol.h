@@ -10,6 +10,10 @@
 
 @protocol TestProtocol <NSObject>
 
+@property (nonatomic ,copy) NSString *name;
+
+@property (nonatomic ,copy) NSString *age;
+
 - (void)methodProtocol;
 
 @end

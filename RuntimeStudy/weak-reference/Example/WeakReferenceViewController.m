@@ -13,7 +13,7 @@
 @interface WeakReferenceViewController ()
 
 @property (nonatomic, strong) WeakReference *weakRef;
-
+@property (nonatomic, copy) dispatch_block_t block;
 @end
 
 @implementation WeakReferenceViewController
@@ -23,6 +23,12 @@
 #pragma mark ===== Life Cycle =====
 
 - (void)viewDidLoad {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [NSThread sleepForTimeInterval:3];
+        self.block();
+    });
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];

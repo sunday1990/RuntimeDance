@@ -7,9 +7,17 @@
 //
 
 #include "MyObjc.h"
+#include "MyRuntime.h"
 
 struct objc_class{
-  
+    Class isa;//等价于struct objc_class *isa;
+    Class super_class;//等价于struct objc_class *super_class;
+    const char *name;//类名如 "UIView"
+    long instance_size;//实例变量的大小
+    struct objc_ivar_list *ivars;//该类的成员变量链表
+    struct objc_method_list **methodLists;//该方法定义链表
+    struct objc_cache *cache;//方法缓存
+    struct objc_protocol_list *protocols;//协议链表
 };
 
 struct objc_object{
@@ -17,6 +25,6 @@ struct objc_object{
 };
 
 struct objc_selector{
-    void *sel_id;
-    const char *sel_types;
+    char *name;//名称
+    char *types;//类型
 };

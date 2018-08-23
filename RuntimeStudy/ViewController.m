@@ -20,7 +20,6 @@
 #import "HardForardInvoation.h"
 
 
-
 #import "WeakReference.h"
 #import "WeakReferenceViewController.h"
 
@@ -66,6 +65,8 @@
     CALL_METHOD(object, @selector(resetISA));
     CALL_METHOD(object, @selector(testFatherMethod));
     CALL_METHOD(object, @selector(testCreateProtocol));
+    NSArray *classlist = [object findAllOf:[DynamicObject class]];
+    NSLog(@"class list %@",classlist);
 }
 
 - (void)demo1{
@@ -115,6 +116,7 @@
 //            break;
 //        }
 //    }
+    
     //方式二
     [tool callOriginalSelector:@selector(testMethod) insteadofCategoryInClass:tc.class];
     [tool callOriginalSelector:@selector(testMethodwithParam:) beforeCategoryInClass:tc.class];
